@@ -1,5 +1,7 @@
 package producerandcustomer;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -16,9 +18,8 @@ public class ReentrantLockPC {
 	public static void main(String[] args) throws InterruptedException {
 		Producer producer = new Producer(reentrantLock,condition);
 		Consumer consumer = new Consumer(reentrantLock,condition);
-
-
-		Thread produceThread = new Thread(() -> {
+		//任务
+		Runnable produceRunnable = () -> {
 			for (int i=0;i<10;i++){
 				try {
 					producer.produce();
@@ -26,10 +27,9 @@ public class ReentrantLockPC {
 					e.printStackTrace();
 				}
 			}
-		});
+		};
 
-
-		Thread consumeThread = new Thread(() -> {
+		Runnable consumerRunnable = () -> {
 			for (int i=0;i<10;i++){
 				try {
 					consumer.consume();
@@ -37,13 +37,21 @@ public class ReentrantLockPC {
 					e.printStackTrace();
 				}
 			}
-		});
+		};
 
-		produceThread.start();
-		consumeThread.start();
+		//线程
+//		Thread produceThread = new Thread(produceRunnable);
+//		Thread consumeThread = new Thread(consumerRunnable);
+//		produceThread.start();
+//		consumeThread.start();
+//		produceThread.join();
+//		consumeThread.join();
 
-		produceThread.join();
-		consumeThread.join();
+		//线程池
+		ExecutorService fixedThreadPool = Executors.newFixedThreadPool(2);
+		fixedThreadPool.execute(produceRunnable);
+		fixedThreadPool.execute(consumerRunnable);
+
 
 	}
 
