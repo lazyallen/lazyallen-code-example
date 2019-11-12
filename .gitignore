@@ -78,3 +78,8 @@ fabric.properties
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
+mybatisplus-generator/src/main/resources/
+mybatisplus-generator/src/test/
+mybatisplus-generator/target/generated-sources/
+mybatisplus/src/main/resources/static/
+mybatisplus/src/main/resources/templates/
