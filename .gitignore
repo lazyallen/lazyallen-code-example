@@ -83,3 +83,4 @@ mybatisplus-generator/src/test/
 mybatisplus-generator/target/generated-sources/
 mybatisplus/src/main/resources/static/
 mybatisplus/src/main/resources/templates/
+.idea/
