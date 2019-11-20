@@ -4,6 +4,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
+ * 对象（锁、条件变量） -> 任务 -> 提交给线程执行
  * @author allen
  * @Date 2019-11-20
  */

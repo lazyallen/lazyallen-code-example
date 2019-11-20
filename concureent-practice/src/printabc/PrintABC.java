@@ -1,7 +1,7 @@
 package printabc;
 
 /**
- * 模板 -> 任务 -> 提交给线程执行
+ * 对象 -> 任务 -> 提交给线程执行
  * @author allen
  * @Date 2019-11-20
  */
