@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @author allen
  * @Date 2019-11-20
  */
-public class PrintABCReentrantlock {
+public class PrintABCReentrantLock {
 	static class Print{
 		private ReentrantLock lock;
 		Condition conditionA;
